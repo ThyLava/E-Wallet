@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#008577</color>
+  <color name="colorPrimaryDark">#00574B</color>
+  <color name="colorAccent">#D81B60</color>
+  <color name="colorWhite">#ffffff</color>
+  <color name="textColor">#1A1C25</color>
+  <color name="default_slet">#4B4C50</color>
+  <color name="dot_enable">#1B5C7D </color>
+  <color name="dot_disable">#087E73</color>
+  <color name="black_overlay">#66000000</color>
+  <color name="purple_500">#0CE9E9</color>
+  <color name="purple_700">#0CE9E9</color>
+  <color name="purple_200">#0CE9E9</color>
+  <color name="white">#ffffff</color>
+  <color name="teal_200">#008080</color>
+  <color name="teal_700">#008080</color>
+  <color name="black">#000000</color>
+  <color name="red">#FF0000</color>
+  <color name="otp_color">#E3E8EB</color>
+  <color name="app_background">#F6FEFE</color>
+  <color name="blue_sky">#5DADE2</color>
+  <color name="blue">#2368EC</color>
+</resources>
