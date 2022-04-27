@@ -8,6 +8,11 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp">
@@ -39,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="110dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="25dp"
             android:orientation="horizontal"
@@ -48,20 +53,20 @@
             <Button
                 android:id="@+id/btn_close"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="3"
                 android:background="@drawable/button_style"
                 android:gravity="center"
                 android:text="@string/close" />
 
-            <Space
+            <View
                 android:layout_width="20dp"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btn_resend"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="3"
                 android:background="@drawable/button_style"
                 android:gravity="center"

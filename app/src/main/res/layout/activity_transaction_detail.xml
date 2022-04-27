@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context=".views.TransactionDetailActivity">
+    <include layout="@layout/navigation_bar" />
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="15dp"
+        android:background="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        app:cardElevation="1dp"
+        android:layout_height="120dp"
+        android:id="@+id/card_detail">
+        <RelativeLayout
+            android:id="@+id/card_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:weightSum="7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:paddingStart="10dp"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/payment_img"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/eletric" />
+                    <TextView
+                        android:id="@+id/date_pay"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10-Feb-2022"
+                        android:textAppearance="@style/TextAppearance.Compat.Notification.Title" />
+                    <TextView
+                        android:id="@+id/desc_pay"
+                        android:layout_width="240dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="description"
+                        android:textColor="#052053" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/mainTitle"
+                        android:textSize="20sp"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:text="Electricity"
+                        android:textAppearance="@style/TextAppearance.Compat.Notification.Title" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/amount_total"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:paddingStart="20dp"
+                        android:text="$ 2.00"
+                        android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
+                        android:textColor="@color/blue_sky" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/label_chip"
+                        android:textColor="@color/blue_sky"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:text="food"
+                        android:textAlignment="center"
+                        app:chipBackgroundColor="@color/status_2" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="15dp"
+        android:background="@color/black"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        app:cardElevation="1dp"
+        android:layout_height="280dp"
+        android:id="@+id/show_detail">
+        <RelativeLayout
+            android:id="@+id/card_relative_layout_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+            <LinearLayout
+                android:weightSum="12"
+                android:orientation="horizontal"
+                android:layout_marginTop="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Fund"
+                        android:textColor="@color/blue"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Transfer For"
+                        android:textColor="@color/blue"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Amount Payment"
+                        android:textColor="@color/blue"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Payment Date"
+                        android:textColor="@color/blue"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Total Payment"
+                        android:textColor="@color/blue"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginRight="115dp"
+                    android:gravity="end"
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="APAY Wallet"
+                        android:textColor="@color/purple_200"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/transfer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Free"
+                        android:textColor="@color/purple_200"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$ 2.00"
+                        android:textColor="@color/purple_200"
+                        android:textSize="17sp"/>
+                    <TextView
+                        android:id="@+id/payment_date"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fund"
+                        android:textColor="@color/purple_200"
+                        android:textSize="17sp"/>
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$ 2.00"
+                        android:textColor="@color/purple_200"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

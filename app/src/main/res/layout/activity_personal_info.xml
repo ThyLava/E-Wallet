@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/app_background"
+    android:background="@drawable/bg"
     tools:context=".views.PersonalInfoActivity">
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp">
         <TextView
-            android:textSize="22dp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:gravity="center"
@@ -29,29 +29,39 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/subtitle"/>
+            android:text="Please Enter Your Name To Start Up E-Wallet"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="10dp"
+            android:background="@drawable/edit_text_border"
             android:id="@+id/tv_first_name"
             android:inputType="text"
             android:gravity="center"
             android:hint="@string/first_name"
-            android:background="@drawable/otp_style"
+
             android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:layout_height="50dp"/>
         <EditText
             android:id="@+id/tv_last_name"
             android:inputType="text"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="10dp"
+            android:background="@drawable/edit_text_border"
             android:gravity="center"
             android:hint="@string/last_name"
-            android:background="@drawable/otp_style"
             android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:layout_height="50dp"/>
     </LinearLayout>
 
 
@@ -60,7 +70,7 @@
         android:id="@+id/btn_enter_username"
         android:layout_marginTop="40dp"
         android:layout_width="130dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_gravity="end"
         android:layout_marginRight="10dp"
         android:background="@drawable/button_style"

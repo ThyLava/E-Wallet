@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.FoodActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="9"
+            android:background="@drawable/edit_text_border"
+            android:drawableLeft="@drawable/ic_baseline_search_24"
+            android:drawablePadding="10dp"
+            android:elevation="10dp"
+            android:gravity="left|center_vertical"
+            android:hint="Search"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            tools:ignore="RtlHardcoded" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/food_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            app:auto_cycle="true"
+            app:corner_radius="50"
+            app:delay="0"
+            app:error_image="@drawable/purple"
+            app:period="1000"
+            app:placeholder="@drawable/purple" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Favorite Food" />
+    </RelativeLayout>
+        <GridView
+            android:id="@+id/grid_food"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnWidth="100dp"
+            android:gravity="center"
+            android:numColumns="2"
+            android:scrollbarSize="0dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" />
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.canadia.e_wallet;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,12 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.canadia.e_wallet.views.PasswordActivity;
+import com.canadia.e_wallet.views.SignUpActivity;
+import com.canadia.e_wallet.views.TransactionDetailActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
   private ViewPager viewPager;
-  private Button button;
+  private Button button, btn_register;
   private SliderPagerAdapter adapter;
 
   @Override
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     viewPager = findViewById(R.id.pagerIntroSlider);
     TabLayout tabLayout = findViewById(R.id.tabs);
     button = findViewById(R.id.button);
+    btn_register = findViewById(R.id.btn_register);
 
     // init slider pager adapter
     adapter = new SliderPagerAdapter(getSupportFragmentManager(),
@@ -53,9 +58,21 @@ public class MainActivity extends AppCompatActivity {
 
     button.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        if (viewPager.getCurrentItem() < adapter.getCount()) {
+        if (viewPager.getCurrentItem() < adapter.getCount()-1) {
           viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        }else{
+            Intent next_intent = new Intent(getBaseContext(), SignUpActivity.class);
+            startActivity(next_intent);
         }
+
+      }
+    });
+
+    btn_register.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent next_intent = new Intent(getBaseContext(), PasswordActivity.class);
+        startActivity(next_intent);
       }
     });
 
@@ -70,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
       }
       @Override public void onPageSelected(int position) {
         if (position == adapter.getCount() - 1) {
-          button.setText(R.string.get_started);
+          button.setText("Login");
+
         } else {
           button.setText(R.string.next);
         }

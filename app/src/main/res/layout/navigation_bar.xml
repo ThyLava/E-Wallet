@@ -5,22 +5,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:elevation="5dp"
+    android:elevation="0dp"
     android:background="@color/purple_500"
     tools:ignore="MissingConstraints">
+
     <ImageView
-        android:layout_gravity="start"
         android:id="@+id/back"
-        android:src="@drawable/action"
         android:layout_width="30dp"
-        android:layout_height="30dp"/>
+        android:layout_height="30dp"
+        android:layout_gravity="start"
+        android:src="@drawable/action"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="13dp" />
+
     <TextView
         android:id="@+id/app_title_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="156dp"
+        android:layout_height="26dp"
+        android:gravity="center"
         android:layout_gravity="center_horizontal"
         android:text="Title"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="14dp" />
+
 </androidx.appcompat.widget.Toolbar>

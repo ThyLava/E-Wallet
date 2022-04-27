@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".views.PaymentActivity">
+    <include layout="@layout/navigation_bar" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="Payment for all electricity bills city electricity A"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
+    <EditText
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:paddingStart="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/customer_code"
+        android:inputType="number"
+        android:hint="   Customer's code"
+        android:background="@drawable/edit_text_border"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/get_customer_code"
+        android:textColor="@color/blue"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How to get the code ?"/>
+    <Button
+      android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_style"
+        android:text="Check"/>
+</LinearLayout>

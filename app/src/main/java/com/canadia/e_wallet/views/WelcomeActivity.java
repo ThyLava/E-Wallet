@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.canadia.e_wallet.MainActivity;
 import com.canadia.e_wallet.R;
 import com.canadia.e_wallet.helper.OnButtonClick;
 import com.canadia.e_wallet.helper.Tool;
@@ -49,6 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
         login_face = findViewById(R.id.btn_login_face_id);
         logo = findViewById(R.id.your_choice);
 
+
         tv_forgot_pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +67,8 @@ public class WelcomeActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"WELCOME ",Toast.LENGTH_SHORT).show();
+                Intent next_intent = new Intent(getBaseContext(), HomeActivity.class);
+                startActivity(next_intent);
             }
         });
 
@@ -78,7 +81,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 Tool.comfirmSignout(WelcomeActivity.this, "Are you sure you want to sign out ?", new OnButtonClick() {
                     @Override
                     public void buttonClick() {
-                        Toast.makeText(getApplicationContext(),"already sign out !!",Toast.LENGTH_SHORT).show();
+                        Intent next_intent = new Intent(getBaseContext(), MainActivity.class);
+                        startActivity(next_intent);
                     }
                 });
             }

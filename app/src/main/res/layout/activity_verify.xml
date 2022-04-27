@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@color/app_background"
+    android:background="@drawable/bg"
     tools:context=".views.VerifyActivity">
 
     <LinearLayout
         android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="wrap_content">
         <TextView
-            android:textSize="22dp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:gravity="center"
@@ -29,91 +28,48 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/subtitle"/>
+            android:text="Please waiting for SMS to verify your OTP code"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal">
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/first_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/second_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/third_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/four_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/five_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
-        <EditText
-            android:maxLength="1"
-            android:id="@+id/six_otp"
-            android:textAlignment="center"
-            android:layout_marginTop="9dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/otp_style"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:inputType="number"
-            android:hint="."/>
+        android:layout_height="wrap_content"
+        >
 
+        <com.chaos.view.PinView
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="@drawable/otp_style"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="50dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="10dp"
+            app:itemWidth="50dp"
+            app:lineColor="@color/black_overlay"
+            app:lineWidth="1dp"
+            app:viewType="rectangle" />
     </LinearLayout>
 
     <Button
         android:enabled="false"
         android:id="@+id/btn_verify_otp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_width="130dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_gravity="end"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/button_style"
         android:text="@string/next" />
     <TextView
@@ -135,13 +91,4 @@
         android:layout_height="wrap_content"
         android:textColorLink="@color/blue"
         />
-    <TextView
-        android:id="@+id/success_show"
-        android:visibility="invisible"
-        android:gravity="center"
-        android:layout_marginTop="230dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#0AC398 "
-        android:text="@string/success"/>
 </LinearLayout>

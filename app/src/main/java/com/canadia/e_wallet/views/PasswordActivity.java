@@ -54,10 +54,8 @@ public class PasswordActivity extends AppCompatActivity {
                         show_incorrect_password.setVisibility(View.VISIBLE);
                     }
                 }
-
             }
         });
-
     }
     private final TextWatcher passwordTextWatcher = new TextWatcher() {
         @Override

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".views.TransferToActivity">
+    <include layout="@layout/navigation_bar" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="20dp"
+            android:background="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/logo_bank"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/acleda" />
+            <TextView
+                android:id="@+id/name_bank"
+                android:layout_marginTop="20dp"
+                android:gravity="start"
+                android:layout_marginLeft="90dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank A"
+                android:textColor="@color/blue_sky"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_marginTop="45dp"
+                android:gravity="start"
+                android:layout_marginLeft="90dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="free recharge"
+                android:textColor="@color/default_slet"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:gravity="end"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Charge "
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="10dp"
+            android:background="@drawable/edit_text_border"
+            android:drawablePadding="12sp"
+            android:gravity="left|center_vertical"
+            android:drawableStart="@drawable/payment"
+            android:maxLength="4"
+            android:id="@+id/card_number"
+            android:inputType="number"
+            android:paddingStart="20dp"
+            android:hint="Enter card number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+        <EditText
+            android:drawableStart="@drawable/wallet"
+            android:layout_marginBottom="5dp"
+            android:elevation="10dp"
+            android:background="@drawable/edit_text_border"
+            android:gravity="left|center_vertical"
+            android:drawablePadding="12sp"
+            android:maxLength="4"
+            android:id="@+id/amount"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:inputType="number"
+            android:hint="$  Enter the Amount"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+        <EditText
+            android:drawablePadding="12sp"
+            android:gravity="left|center_vertical"
+            android:drawableStart="@drawable/msg"
+            android:id="@+id/msg"
+            android:inputType="text"
+            android:hint="Massage (optional) "
+            android:paddingStart="20dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="10dp"
+            android:background="@drawable/edit_text_border"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/saved"
+            android:checked="true"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Save Information"
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_transfer_next"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:enabled="false"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="end"
+        android:background="@drawable/button_style"
+        android:text="@string/next" />
+</LinearLayout>

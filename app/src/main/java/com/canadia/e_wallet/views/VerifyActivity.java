@@ -1,19 +1,28 @@
 package com.canadia.e_wallet.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,17 +31,18 @@ import android.widget.Toast;
 import com.canadia.e_wallet.R;
 import com.canadia.e_wallet.helper.OnButtonClick;
 import com.canadia.e_wallet.helper.Tool;
+import com.chaos.view.PinView;
 
+import java.lang.annotation.Documented;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class VerifyActivity extends AppCompatActivity {
 
-    EditText first_otp,second_otp,third_otp,four_otp,five_otp,six_otp;
     Button verify_otp;
-    TextView canadiaLink,timeCountdown,success_show;
+    TextView canadiaLink,timeCountdown;
     Spanned Text;
-    String phone_number, d_box1 = "1",d_box2 = "1", d_box3 = "1",d_box4 = "1",d_box5 = "1", d_box6 = "1";
+    String phone_number;
 
 
     @Override
@@ -47,19 +57,55 @@ public class VerifyActivity extends AppCompatActivity {
         phone_number = intent.getStringExtra("phone_number");
 
         // find id
-        first_otp = findViewById(R.id.first_otp);
-        second_otp = findViewById(R.id.second_otp);
-        third_otp = findViewById(R.id.third_otp);
-        four_otp = findViewById(R.id.four_otp);
-        five_otp = findViewById(R.id.five_otp);
-        six_otp = findViewById(R.id.six_otp);
         verify_otp = findViewById(R.id.btn_verify_otp);
         canadiaLink = findViewById(R.id.canadia_link);
         timeCountdown = findViewById(R.id.time_limit);
-        success_show = findViewById(R.id.success_show);
+
 
         setCountdown();
+        final PinView pinView = findViewById(R.id.firstPinView);
+        pinView.setTextColor(
+                ResourcesCompat.getColor(getResources(), R.color.colorAccent, getTheme()));
+        pinView.setTextColor(
+                ResourcesCompat.getColorStateList(getResources(), R.color.black, getTheme()));
+        pinView.setLineColor(
+                ResourcesCompat.getColor(getResources(), R.color.colorPrimary, getTheme()));
+        pinView.setLineColor(
+                ResourcesCompat.getColorStateList(getResources(), R.color.purple_200, getTheme()));
+        pinView.setItemCount(6);
+        pinView.setItemHeight(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
+        pinView.setItemWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
+        pinView.setItemRadius(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_radius));
+        pinView.setItemSpacing(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_spacing));
+        pinView.setLineWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width));
+        pinView.setAnimationEnable(true);// start animation when adding text
+        pinView.setCursorVisible(true);
+        pinView.setCursorColor(ResourcesCompat.getColor(getResources(), R.color.blue, getTheme()));
+        pinView.setCursorWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width));
+        pinView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                System.out.println(s.toString());
+                System.out.println(pinView.getText().toString().equals("111111"));
+
+                verify_otp.setEnabled(pinView.getText().toString().equals("111111"));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }});
+        pinView.setItemBackgroundColor(Color.BLACK);
+        pinView.setItemBackground(getResources().getDrawable(R.drawable.otp_style));
+        pinView.setItemBackgroundResources(R.drawable.otp_style);
+        pinView.setHideLineWhenFilled(false);
+//        pinView.setPasswordHidden(false);
+//        pinView.setTransformationMethod(new PasswordTransformationMethod());
         Text = Html.fromHtml("<a href=''>Change phone number</a>");
         canadiaLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,33 +120,13 @@ public class VerifyActivity extends AppCompatActivity {
                         });
             }
         });
-        EditText[] edit = {first_otp,second_otp,third_otp,four_otp,five_otp,six_otp};
-
-        first_otp.addTextChangedListener(new verifyTextWatcher(first_otp,edit));
-        second_otp.addTextChangedListener(new verifyTextWatcher(second_otp,edit));
-        third_otp.addTextChangedListener(new verifyTextWatcher(third_otp,edit));
-        four_otp.addTextChangedListener(new verifyTextWatcher(four_otp,edit));
-        five_otp.addTextChangedListener(new verifyTextWatcher(five_otp,edit));
-        six_otp.addTextChangedListener(new verifyTextWatcher(six_otp,edit));
-
 
         verify_otp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String box1 = first_otp.getText().toString();
-                String box2 = second_otp.getText().toString();
-                String box3 = third_otp.getText().toString();
-                String box4 = four_otp.getText().toString();
-                String box5 = five_otp.getText().toString();
-                String box6 = six_otp.getText().toString();
-                if(d_box1.equals(box1) && d_box2.equals(box2) && d_box3.equals(box3) && d_box4.equals(box4) && d_box5.equals(box5) && d_box6.equals(box6)){
                     Toast.makeText(getApplicationContext(), "Verification code sent successfully", Toast.LENGTH_SHORT).show();
-                    success_show.setVisibility(View.VISIBLE);
                     Intent next_intent = new Intent(getBaseContext(),PasswordActivity.class);
                     startActivity(next_intent);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Sorry please check your otp again!", Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
@@ -130,94 +156,9 @@ public class VerifyActivity extends AppCompatActivity {
                 });
 
             }
+
         }.start();
     }
 
-//    public void setCountDownTimer(long startCountdown) {
-//        countDownTimer = new CountDownTimer(startCountdown, 1000) {
-//            @SuppressLint("SetTextI18n")
-//            public void onTick(long millisUntilFinished) {
-//                timeCountdown.setText((millisUntilFinished / 1000) + " seconds");
-//                GlobalShare.getInstance().millisContinue = millisUntilFinished;
-////                Log.e("Timer: ", (millisUntilFinished / 1000) + " seconds");
-//            }
-//            public void onFinish() {
-////                timeCountdown.setText("0");
-////                finish();
-//                Tool.showDialog(VerifyActivity.this, "Did not you receive verification code ? ","We call "+phone_number + " to read your verification code", new OnButtonClick() {
-//                    @Override
-//                    public void buttonClick() {
-//                        setCountdown();
-//                    }
-//                });
-//
-//            }
-//        }.start();
-//    }
 
-    public class verifyTextWatcher implements TextWatcher {
-        private final EditText[] editText;
-        private View view;
-        public verifyTextWatcher(View view, EditText editText[])
-        {
-            this.editText = editText;
-            this.view = view;
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            String text = editable.toString();
-            switch (view.getId()) {
-
-                case R.id.first_otp:
-                    if (text.length() == 1)
-                        editText[1].requestFocus();
-                    break;
-                case R.id.second_otp:
-
-                    if (text.length() == 1)
-                        editText[2].requestFocus();
-                    else if (text.length() == 0)
-                        editText[0].requestFocus();
-                    break;
-                case R.id.third_otp:
-                    if (text.length() == 1)
-                        editText[3].requestFocus();
-                    else if (text.length() == 0)
-                        editText[1].requestFocus();
-                    break;
-                case R.id.four_otp:
-                    if (text.length() == 1)
-                        editText[4].requestFocus();
-                    else if (text.length() == 0)
-                        editText[2].requestFocus();
-                    break;
-                case R.id.five_otp:
-                    if (text.length() == 1)
-                        editText[5].requestFocus();
-                    else if (text.length() == 0)
-                        editText[3].requestFocus();
-                    break;
-                case R.id.six_otp:
-                    if (text.length() == 0)
-                        editText[6].requestFocus();
-                    break;
-            }
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-            String box1 = first_otp.getText().toString().trim();
-            String box2 = second_otp.getText().toString().trim();
-            String box3 = third_otp.getText().toString().trim();
-            String box4 = four_otp.getText().toString().trim();
-            String box5 = five_otp.getText().toString().trim();
-            String box6 = six_otp.getText().toString().trim();
-            verify_otp.setEnabled(!box1.isEmpty() && !box2.isEmpty() && !box3.isEmpty() && !box4.isEmpty() && !box5.isEmpty() && !box6.isEmpty());
-        }
-    }
 }

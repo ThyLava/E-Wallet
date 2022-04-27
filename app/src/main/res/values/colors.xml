@@ -18,7 +18,11 @@
   <color name="black">#000000</color>
   <color name="red">#FF0000</color>
   <color name="otp_color">#E3E8EB</color>
-  <color name="app_background">#F6FEFE</color>
+  <color name="app_background">#FBFEFD</color>
   <color name="blue_sky">#5DADE2</color>
   <color name="blue">#2368EC</color>
+  <color name="chip_color">#82D7BA </color>
+  <color name="status_1">#ABE8F0</color>
+  <color name="status_2">#ABF0D1</color>
+  <color name="status_3">#F4A986</color>
 </resources>

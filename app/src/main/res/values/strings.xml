@@ -34,7 +34,7 @@
     <string name="input_re_enter_password">Re-enter password</string>
     <string name="enter">ENTER</string>
     <string name="create_password">Create a password</string>
-    <string name="incorrect_password">Password doesn\'t match, please enter again.</string>
+    <string name="incorrect_password">Password does not match, please enter again.</string>
     <string name="personal_info">Personal Info</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last name</string>
@@ -51,9 +51,27 @@
     <string name="your_id_number">Your ID number</string>
     <string name="suggestion_yourname_gmail_com">Suggestion : yourname@gmail.com</string>
     <string name="sent">SENT</string>
-    <string name="step1">Praesent egestas ac elit vitae tristique. Aliquam tincidunt tortor leo, vel consequat mauris placerat at. Sed at ante a est tincidunt convallis eget a elit</string>
-    <string name="step2">Vivamus tempor nulla pharetra orci mattis pretium. Curabitur sed arcu eu massa mollis hendrerit imperdiet posuere metus.</string>
-    <string name="step3">Pellentesque tempor scelerisque vehicula. Cras in lectus id mauris gravida sagittis ac ac felis.</string>
+    <string name="step1">Praesent egestas ac elit vitae tristique. Aliquot incident torpor leo, vel consequent mauris placerat at. Sed at ante a est tincidunt convallis eget a elit</string>
+    <string name="step2">Vivamus tempor nulla pharetra orci mattes premium. Curator sed arc eu mass mollies hindered imperiled poser metas.</string>
+    <string name="step3">Pellentesque tempor sceneries vehicular. Crass in lectures id marries gravid sagittal  fells.</string>
     <string name="instruction3step">Please perform the following 3 steps to retrieve your password :</string>
     <string name="sure">sure</string>
+    <string name="main_screen">Main Screen</string>
+    <string-array name="banks">
+        <item>ABA</item>
+        <item>ACLEDA</item>
+        <item>Canadia</item>
+        <item>Wing</item>
+        <item>AMK</item>
+        <item>Amret</item>
+
+    </string-array>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="wallet">Wallet</string>
+    <string name="home">Home</string>
+    <string name="shopping">Shopping</string>
+    <string name="please_enter_your_id_number_and_email_to_verify_your_password">Please enter your ID number and email to verify your password</string>
 </resources>

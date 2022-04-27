@@ -53,9 +53,14 @@ public class NewPhoneNumberActivity extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(),"hello",Toast.LENGTH_SHORT).show();
                                 String new_phone_number = new_number.getText().toString();
-                                Intent next_intent = new Intent(getBaseContext(), VerifyActivity.class);
-                                next_intent.putExtra("new_phone_number",new_phone_number);
-                                startActivity(next_intent);
+                                if(!(new_phone_number.length()<=10)){
+                                    Intent next_intent = new Intent(getBaseContext(), NewPhoneNumberActivity.class);
+                                    startActivity(next_intent);
+                                }else{
+                                    Intent next_intent = new Intent(getBaseContext(), VerifyActivity.class);
+                                    next_intent.putExtra("new_phone_number",new_phone_number);
+                                    startActivity(next_intent);
+                                }
                             }
                         });
             }
@@ -73,7 +78,7 @@ public class NewPhoneNumberActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             String new_phone_number = new_number.getText().toString().trim();
-            btn_new_number.setEnabled(!new_phone_number.isEmpty() && new_phone_number.length()<10);
+            btn_new_number.setEnabled(new_phone_number.length()>=9 && new_phone_number.length()<=10);
         }
 
         @Override

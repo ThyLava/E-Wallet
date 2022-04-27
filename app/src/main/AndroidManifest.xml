@@ -2,22 +2,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.canadia.e_wallet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EWallet">
         <activity
-            android:name=".views.TransferFundActivity"
-            android:exported="true" >
+            android:name=".views.FoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.TransactionDetailActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".views.NotificationActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".views.HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".views.WithdrawalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.PaymentInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.BillingInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ListBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.PayBillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.TransferToActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.TransferFundActivity"
+            android:exported="false" />
         <activity
             android:name=".views.InstructionActivity"
             android:exported="false" />
@@ -41,8 +76,7 @@
             android:exported="false" />
         <activity
             android:name=".views.SignUpActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -53,6 +87,7 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+
         </activity>
     </application>
 
