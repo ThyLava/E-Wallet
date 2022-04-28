@@ -100,7 +100,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 });
                 break;
             case R.id.btn_login_face_id:
-                Tool.loginChoice(WelcomeActivity.this, logo, "Face ID for APAY", "Use your face ID to login", new OnButtonClick() {
+                Tool.loginChoice(WelcomeActivity.this, R.drawable.face, "Face ID for APAY", "Use your face ID to login", new OnButtonClick() {
                     @Override
                     public void buttonClick() {
 
@@ -108,7 +108,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 });
                 break;
             case R.id.btn_login_finger:
-                Tool.loginChoice(WelcomeActivity.this, logo, "Finger print for APAY", "Use your finger print to login", new OnButtonClick() {
+                Tool.loginChoice(WelcomeActivity.this, R.drawable.finger, "Finger print for APAY", "Use your finger print to login", new OnButtonClick() {
                     @Override
                     public void buttonClick() {
 

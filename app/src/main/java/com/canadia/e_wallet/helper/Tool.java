@@ -116,14 +116,14 @@ public class Tool {
 
     }
 
-    public static void loginChoice(Activity activity, ImageView logo, String title, String desc, final OnButtonClick onButtonClick ) {
+    public static void loginChoice(Activity activity, int logo, String title, String desc, final OnButtonClick onButtonClick ) {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.login_dialog);
         ImageView logo_choose = (ImageView) dialog.findViewById(R.id.your_choice);
-        logo_choose.setImageResource(R.drawable.finger);
+        logo_choose.setImageResource(logo);
         TextView main_title = (TextView) dialog.findViewById(R.id.title);
         main_title.setText(title);
         TextView description = (TextView) dialog.findViewById(R.id.description);
@@ -137,34 +137,7 @@ public class Tool {
                 dialog.dismiss();
             }
         });
-
         dialog.show();
 
     }
-
-//    public static void loginFaceID(Activity activity, ImageView logo, String title, String desc, final OnButtonClick onButtonClick ) {
-//        final Dialog dialog = new Dialog(activity);
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        dialog.setCancelable(false);
-//        dialog.setContentView(R.layout.login_dialog);
-//        ImageView logo_choose = (ImageView) dialog.findViewById(R.id.your_choice);
-//        logo_choose.setImageResource(R.drawable.face);
-//        TextView main_title = (TextView) dialog.findViewById(R.id.title);
-//        main_title.setText(title);
-//        TextView description = (TextView) dialog.findViewById(R.id.description);
-//        description.setText(desc);
-//
-//        final Button closeDialog = (Button) dialog.findViewById(R.id.btn_login_cancel);
-//        closeDialog.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        dialog.show();
-//
-//    }
 }
