@@ -36,8 +36,5 @@ public class InstructionActivity extends AppCompatActivity {
             }
         });
         title.setText("");
-//       ActionBar.registerSupportToolbar(this, action_back);
-
-
     }
 }

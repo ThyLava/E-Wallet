@@ -8,13 +8,13 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="20dp">
 
         <TextView
-            android:id="@+id/change_phone_title"
+            android:id="@+id/main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"

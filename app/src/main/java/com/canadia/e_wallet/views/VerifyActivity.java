@@ -4,27 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +25,10 @@ import com.canadia.e_wallet.helper.OnButtonClick;
 import com.canadia.e_wallet.helper.Tool;
 import com.chaos.view.PinView;
 
-import java.lang.annotation.Documented;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class VerifyActivity extends AppCompatActivity {
+public class VerifyActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button verify_otp;
     TextView canadiaLink,timeCountdown;
@@ -55,81 +46,12 @@ public class VerifyActivity extends AppCompatActivity {
 //        String phone_number = getIntent().toString().trim();
         Intent intent = getIntent();
         phone_number = intent.getStringExtra("phone_number");
-
-        // find id
-        verify_otp = findViewById(R.id.btn_verify_otp);
-        canadiaLink = findViewById(R.id.canadia_link);
-        timeCountdown = findViewById(R.id.time_limit);
-
-
+        bindViewByID();
         setCountdown();
-        final PinView pinView = findViewById(R.id.firstPinView);
-        pinView.setTextColor(
-                ResourcesCompat.getColor(getResources(), R.color.colorAccent, getTheme()));
-        pinView.setTextColor(
-                ResourcesCompat.getColorStateList(getResources(), R.color.black, getTheme()));
-        pinView.setLineColor(
-                ResourcesCompat.getColor(getResources(), R.color.colorPrimary, getTheme()));
-        pinView.setLineColor(
-                ResourcesCompat.getColorStateList(getResources(), R.color.purple_200, getTheme()));
-        pinView.setItemCount(6);
-        pinView.setItemHeight(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
-        pinView.setItemWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
-        pinView.setItemRadius(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_radius));
-        pinView.setItemSpacing(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_spacing));
-        pinView.setLineWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width));
-        pinView.setAnimationEnable(true);// start animation when adding text
-        pinView.setCursorVisible(true);
-        pinView.setCursorColor(ResourcesCompat.getColor(getResources(), R.color.blue, getTheme()));
-        pinView.setCursorWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width));
-        pinView.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                System.out.println(s.toString());
-                System.out.println(pinView.getText().toString().equals("111111"));
-
-                verify_otp.setEnabled(pinView.getText().toString().equals("111111"));
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }});
-        pinView.setItemBackgroundColor(Color.BLACK);
-        pinView.setItemBackground(getResources().getDrawable(R.drawable.otp_style));
-        pinView.setItemBackgroundResources(R.drawable.otp_style);
-        pinView.setHideLineWhenFilled(false);
-//        pinView.setPasswordHidden(false);
-//        pinView.setTransformationMethod(new PasswordTransformationMethod());
+        pinViewVerify();
+        canadiaLink.setOnClickListener(this);
+        verify_otp.setOnClickListener(this);
         Text = Html.fromHtml("<a href=''>Change phone number</a>");
-        canadiaLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Tool.changePhoneDialog(VerifyActivity.this,
-                        "Are you sure you want"+"\n"+"signup with another"+"\n"+"phone number ?", new OnButtonClick() {
-                            @Override
-                            public void buttonClick() {
-                                Intent intent = new Intent(getBaseContext(),NewPhoneNumberActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-            }
-        });
-
-        verify_otp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "Verification code sent successfully", Toast.LENGTH_SHORT).show();
-                    Intent next_intent = new Intent(getBaseContext(),PasswordActivity.class);
-                    startActivity(next_intent);
-
-            }
-        });
         canadiaLink.setMovementMethod(LinkMovementMethod.getInstance());
         canadiaLink.setText(Text);
     }
@@ -159,6 +81,73 @@ public class VerifyActivity extends AppCompatActivity {
 
         }.start();
     }
+    private void bindViewByID(){
+        verify_otp = findViewById(R.id.btn_verify_otp);
+        canadiaLink = findViewById(R.id.canadia_link);
+        timeCountdown = findViewById(R.id.time_limit);
 
 
+    }
+
+    private void pinViewVerify(){
+        final PinView pinView = findViewById(R.id.firstPinView);
+        pinView.setTextColor(
+                ResourcesCompat.getColor(getResources(), R.color.colorAccent, getTheme()));
+        pinView.setTextColor(
+                ResourcesCompat.getColorStateList(getResources(), R.color.black, getTheme()));
+        pinView.setLineColor(
+                ResourcesCompat.getColor(getResources(), R.color.colorPrimary, getTheme()));
+        pinView.setLineColor(
+                ResourcesCompat.getColorStateList(getResources(), R.color.purple_200, getTheme()));
+        pinView.setItemCount(6);
+        pinView.setItemHeight(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
+        pinView.setItemWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_size));
+        pinView.setItemRadius(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_radius));
+        pinView.setItemSpacing(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_spacing));
+        pinView.setLineWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width));
+        pinView.setAnimationEnable(true);// start animation when adding text
+        pinView.setCursorVisible(true);
+        pinView.setCursorColor(ResourcesCompat.getColor(getResources(), R.color.blue, getTheme()));
+        pinView.setCursorWidth(getResources().getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width));
+        pinView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                System.out.println(s.toString());
+                System.out.println(pinView.getText().toString().equals("111111"));
+                verify_otp.setEnabled(pinView.getText().toString().equals("111111"));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }});
+        pinView.setItemBackgroundColor(Color.BLACK);
+        pinView.setItemBackground(getResources().getDrawable(R.drawable.otp_style));
+        pinView.setItemBackgroundResources(R.drawable.otp_style);
+        pinView.setHideLineWhenFilled(false);
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.canadia_link:
+                Tool.threeParameterDialog(VerifyActivity.this,
+                        "Are you sure you want"+"\n"+"signup with another"+"\n"+"phone number ?", new OnButtonClick() {
+                            @Override
+                            public void buttonClick() {
+                                Intent intent = new Intent(getBaseContext(),NewPhoneNumberActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                break;
+            case R.id.btn_verify_otp:
+                Toast.makeText(getApplicationContext(), "Verification code sent successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(),PasswordActivity.class));
+                break;
+
+        }
+    }
 }

@@ -2,6 +2,7 @@ package com.canadia.e_wallet.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 
 import com.canadia.e_wallet.R;
 
-public class TransferToActivity extends AppCompatActivity {
+public class TransferToActivity extends AppCompatActivity implements View.OnClickListener{
     EditText card_number,amount,msg;
     de.hdodenhof.circleimageview.CircleImageView logo;
     Button btn_transfer_next;
@@ -31,14 +32,7 @@ public class TransferToActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transfer_to);
         getToolbar();
 
-        //get element by id
-
-        card_number = findViewById(R.id.card_number);
-        amount = findViewById(R.id.amount);
-        msg = findViewById(R.id.msg);
-        logo = findViewById(R.id.logo_bank);
-        bank_name = findViewById(R.id.name_bank);
-        btn_transfer_next = findViewById(R.id.btn_transfer_next);
+        bindViewID();
 
         card_number.addTextChangedListener(transferToTextWatcher);
         amount.addTextChangedListener(transferToTextWatcher);
@@ -46,23 +40,14 @@ public class TransferToActivity extends AppCompatActivity {
         Intent i = getIntent();
         logo.setImageResource(i.getIntExtra("img",0));
         bank_name.setText(i.getStringExtra("name"));
-
-        btn_transfer_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next_intent = new Intent(getBaseContext(),WithdrawalActivity.class);
-                startActivity(next_intent);
-            }
-        });
+        btn_transfer_next.setOnClickListener(this);
     }
-
     // set enable button
     private final TextWatcher transferToTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
         }
-
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             String card = card_number.getText().toString().trim();
@@ -72,12 +57,19 @@ public class TransferToActivity extends AppCompatActivity {
                 btn_transfer_next.setEnabled(true);
             }
         }
-
         @Override
         public void afterTextChanged(Editable editable) {
 
         }
     };
+    private void bindViewID(){
+        card_number = findViewById(R.id.card_number);
+        amount = findViewById(R.id.amount);
+        msg = findViewById(R.id.msg);
+        logo = findViewById(R.id.logo_bank);
+        bank_name = findViewById(R.id.name_bank);
+        btn_transfer_next = findViewById(R.id.btn_transfer_next);
+    }
     private void getToolbar() {
         title = findViewById(R.id.app_title_bar);
         action_back = findViewById(R.id.back);
@@ -91,5 +83,14 @@ public class TransferToActivity extends AppCompatActivity {
 //       ActionBar.registerSupportToolbar(this, action_back);
 
 
+    }
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_transfer_next:
+                startActivity(new Intent(getBaseContext(),WithdrawalActivity.class));
+                break;
+        }
     }
 }

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class PayBillActivity extends AppCompatActivity {
     ImageView action_back;
     TextView title;
-    CardView electricity_payment;
     GridView bills;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +32,13 @@ public class PayBillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay_bill);
         getToolbar();
         bills = findViewById(R.id.grid_bill);
-
-        ArrayList<BillModel> billModelArrayList = new ArrayList<BillModel>();
-
-        billModelArrayList.add(new BillModel("Payment", R.drawable.payment));
-        billModelArrayList.add(new BillModel("Internet", R.drawable.wifi));
-        billModelArrayList.add(new BillModel("All Services", R.drawable.dot));
-        billModelArrayList.add(new BillModel("Airport", R.drawable.ic_baseline_connecting_airports_24));
-        billModelArrayList.add(new BillModel("Phone", R.drawable.ic_baseline_phone_iphone_24));
-        billModelArrayList.add(new BillModel("Electricity", R.drawable.eletric));
-        billModelArrayList.add(new BillModel("Watch", R.drawable.watch));
-        billModelArrayList.add(new BillModel("Food & Drink", R.drawable.food));
-
-        BillGridViewAdapter adapter = new BillGridViewAdapter(this, billModelArrayList);
-        bills.setAdapter(adapter);
+        billData();
         bills.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 5:
-                        Intent i = new Intent(getApplicationContext(), ListBankActivity.class);
-                        startActivity(i);
+                        startActivity(new Intent(getBaseContext(),ListBankActivity.class));
                         break;
                     default:
                         break;
@@ -71,7 +56,20 @@ public class PayBillActivity extends AppCompatActivity {
             }
         });
         title.setText("Pay Bills");
+    }
+    private void billData(){
+        ArrayList<BillModel> billModelArrayList = new ArrayList<BillModel>();
 
+        billModelArrayList.add(new BillModel("Payment", R.drawable.payment));
+        billModelArrayList.add(new BillModel("Internet", R.drawable.wifi));
+        billModelArrayList.add(new BillModel("All Services", R.drawable.dot));
+        billModelArrayList.add(new BillModel("Airport", R.drawable.ic_baseline_connecting_airports_24));
+        billModelArrayList.add(new BillModel("Phone", R.drawable.ic_baseline_phone_iphone_24));
+        billModelArrayList.add(new BillModel("Electricity", R.drawable.eletric));
+        billModelArrayList.add(new BillModel("Watch", R.drawable.watch));
+        billModelArrayList.add(new BillModel("Food & Drink", R.drawable.food));
 
+        BillGridViewAdapter adapter = new BillGridViewAdapter(this, billModelArrayList);
+        bills.setAdapter(adapter);
     }
 }

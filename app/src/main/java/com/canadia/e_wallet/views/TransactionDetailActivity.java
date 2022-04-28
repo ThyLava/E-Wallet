@@ -19,8 +19,6 @@ import com.google.android.material.chip.Chip;
 public class TransactionDetailActivity extends AppCompatActivity {
     ImageView payment_img;
     TextView status,title,date,date_payment,mainTitle,mytitle;
-    Chip detail_chip;
-    Button btn_transfer_next;
     ImageView action_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +28,7 @@ public class TransactionDetailActivity extends AppCompatActivity {
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_transaction_detail);
         getToolbar();
-
-        payment_img = findViewById(R.id.payment_img);
-        status = findViewById(R.id.label_chip);
-        title = findViewById(R.id.mainTitle);
-        date = findViewById(R.id.date_pay);
-        date_payment = findViewById(R.id.payment_date);
-        mainTitle = findViewById(R.id.transfer);
-//        detail_chip = findViewById(R.id.label_chip);
+        bindViewID();
         Intent intent = getIntent();
         String mtitle = intent.getStringExtra("title");
         String mstatus = intent.getStringExtra("status");
@@ -56,8 +47,14 @@ public class TransactionDetailActivity extends AppCompatActivity {
             payment_img.setImageResource(image_id);
 //            detail_chip.setChipBackgroundColorResource(color_id);
         }
-
-
+    }
+    private void bindViewID(){
+        payment_img = findViewById(R.id.payment_img);
+        status = findViewById(R.id.label_chip);
+        title = findViewById(R.id.mainTitle);
+        date = findViewById(R.id.date_pay);
+        date_payment = findViewById(R.id.payment_date);
+        mainTitle = findViewById(R.id.transfer);
     }
     private void getToolbar() {
         mytitle = findViewById(R.id.app_title_bar);
@@ -69,8 +66,5 @@ public class TransactionDetailActivity extends AppCompatActivity {
             }
         });
         mytitle.setText("Transaction Details");
-//       ActionBar.registerSupportToolbar(this, action_back);
-
-
     }
 }

@@ -14,7 +14,7 @@ import android.widget.EditText;
 
 import com.canadia.e_wallet.R;
 
-public class PersonalInfoActivity extends AppCompatActivity {
+public class PersonalInfoActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText firstName,lastName;
     Button btn_username;
@@ -25,25 +25,11 @@ public class PersonalInfoActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_personal_info);
-
-        //find id
-        firstName = findViewById(R.id.tv_first_name);
-        lastName = findViewById(R.id.tv_last_name);
-        btn_username = findViewById(R.id.btn_enter_username);
-
+        bindViewID();
+        btn_username.setOnClickListener(this);
         firstName.addTextChangedListener(userNameTextWatcher);
         lastName.addTextChangedListener(userNameTextWatcher);
 
-        btn_username.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String m_first_name = firstName.getText().toString();
-                String m_last_name = lastName.getText().toString();
-                Intent next_intent = new Intent(getBaseContext(), WelcomeActivity.class);
-                next_intent.putExtra("first_name",m_first_name);
-                startActivity(next_intent);
-            }
-        });
     }
     private TextWatcher userNameTextWatcher = new TextWatcher() {
         @Override
@@ -63,4 +49,23 @@ public class PersonalInfoActivity extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_enter_username:
+                String m_first_name = firstName.getText().toString();
+                Intent next_intent = new Intent(getBaseContext(), WelcomeActivity.class);
+                next_intent.putExtra("first_name",m_first_name);
+                startActivity(next_intent);
+                break;
+        }
+    }
+    public void bindViewID(){
+
+        //find id
+        firstName = findViewById(R.id.tv_first_name);
+        lastName = findViewById(R.id.tv_last_name);
+        btn_username = findViewById(R.id.btn_enter_username);
+    }
 }

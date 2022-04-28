@@ -8,7 +8,6 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,14 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.canadia.e_wallet.MainActivity;
 import com.canadia.e_wallet.R;
 import com.canadia.e_wallet.helper.OnButtonClick;
 import com.canadia.e_wallet.helper.Tool;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
     EditText password;
     Spanned signOutText;
     TextView tv_sign_out,tv_first_name,tv_forgot_pwd;
@@ -38,83 +36,22 @@ public class WelcomeActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_welcome);
+        findViewID();
 
-        // find id
-
-        tv_sign_out = findViewById(R.id.tv_sign_out);
-        password = findViewById(R.id.welcome_password);
-        login = findViewById(R.id.btn_login);
-        tv_first_name = findViewById(R.id.first_name_show);
-        tv_forgot_pwd = findViewById(R.id.tv_forgot_pwd);
-        login_finger = findViewById(R.id.btn_login_finger);
-        login_face = findViewById(R.id.btn_login_face_id);
-        logo = findViewById(R.id.your_choice);
-
-
-        tv_forgot_pwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next_intent = new Intent(getBaseContext(), ForgotPasswordActivity.class);
-                startActivity(next_intent);
-            }
-        });
         Intent intent = getIntent();
         first_name = intent.getStringExtra("first_name");
 
         tv_first_name.setText(first_name);
 
         password.addTextChangedListener(passwordTextWatcher);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next_intent = new Intent(getBaseContext(), HomeActivity.class);
-                startActivity(next_intent);
-            }
-        });
-
         signOutText = Html.fromHtml("<a href=''>Sign out</a>");
         tv_sign_out.setText(signOutText);
+        tv_forgot_pwd.setOnClickListener(this);
+        tv_sign_out.setOnClickListener(this);
+        login_finger.setOnClickListener(this);
+        login_face.setOnClickListener(this);
+        login.setOnClickListener(this);
 
-        tv_sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Tool.comfirmSignout(WelcomeActivity.this, "Are you sure you want to sign out ?", new OnButtonClick() {
-                    @Override
-                    public void buttonClick() {
-                        Intent next_intent = new Intent(getBaseContext(), MainActivity.class);
-                        startActivity(next_intent);
-                    }
-                });
-            }
-        });
-
-        // dialog login with finger
-
-        login_finger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Tool.loginFingerPrint(WelcomeActivity.this, logo, "Finger print for APAY", "Use your finger print to login", new OnButtonClick() {
-                    @Override
-                    public void buttonClick() {
-
-                    }
-                });
-            }
-        });
-
-        // dialog login with face ID
-
-        login_face.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Tool.loginFaceID(WelcomeActivity.this, logo, "Face ID for APAY", "Use your face ID to login", new OnButtonClick() {
-                    @Override
-                    public void buttonClick() {
-
-                    }
-                });
-            }
-        });
     }
 
     private final TextWatcher passwordTextWatcher = new TextWatcher() {
@@ -134,4 +71,51 @@ public class WelcomeActivity extends AppCompatActivity {
 
         }
     };
+    private void findViewID(){
+        tv_sign_out = findViewById(R.id.tv_sign_out);
+        password = findViewById(R.id.welcome_password);
+        login = findViewById(R.id.btn_login);
+        tv_first_name = findViewById(R.id.first_name_show);
+        tv_forgot_pwd = findViewById(R.id.tv_forgot_pwd);
+        login_finger = findViewById(R.id.btn_login_finger);
+        login_face = findViewById(R.id.btn_login_face_id);
+        logo = findViewById(R.id.your_choice);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_forgot_pwd:
+                startActivity(new Intent(getBaseContext(),ForgotPasswordActivity.class));
+                break;
+            case R.id.btn_login:
+                startActivity(new Intent(getBaseContext(),HomeActivity.class));
+                break;
+            case R.id.tv_sign_out:
+                Tool.threeParameterDialog(WelcomeActivity.this, "Are you sure you want to sign out ?", new OnButtonClick() {
+                    @Override
+                    public void buttonClick() {
+                       startActivity(new Intent(getBaseContext(),MainActivity.class));
+                    }
+                });
+                break;
+            case R.id.btn_login_face_id:
+                Tool.loginChoice(WelcomeActivity.this, logo, "Face ID for APAY", "Use your face ID to login", new OnButtonClick() {
+                    @Override
+                    public void buttonClick() {
+
+                    }
+                });
+                break;
+            case R.id.btn_login_finger:
+                Tool.loginChoice(WelcomeActivity.this, logo, "Finger print for APAY", "Use your finger print to login", new OnButtonClick() {
+                    @Override
+                    public void buttonClick() {
+
+                    }
+                });
+                break;
+
+        }
+    }
 }

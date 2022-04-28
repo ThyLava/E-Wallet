@@ -30,9 +30,10 @@ public class TransferFundActivity extends AppCompatActivity {
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_transfer_fund);
         getToolbar();
-
         banks = findViewById(R.id.grid_bank);
-
+        bankData();
+    }
+    private void bankData(){
         ArrayList<BankModel> bankModelArrayList = new ArrayList<BankModel>();
         bankModelArrayList.add(new BankModel("Canadia", R.drawable.canadia));
         bankModelArrayList.add(new BankModel("Wing", R.drawable.wing));
@@ -49,11 +50,8 @@ public class TransferFundActivity extends AppCompatActivity {
         bankModelArrayList.add(new BankModel("PHILLIP ",R.drawable.phillip));
         bankModelArrayList.add(new BankModel("Chip Mong",R.drawable.chipmong));
         bankModelArrayList.add(new BankModel("Cambodian Public ",R.drawable.cambodian));
-
-
         BankGridViewAdapter adapter = new BankGridViewAdapter(this, bankModelArrayList);
         banks.setAdapter(adapter);
-
         banks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,7 +61,6 @@ public class TransferFundActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
     private void getToolbar() {
         title = findViewById(R.id.app_title_bar);
@@ -75,8 +72,5 @@ public class TransferFundActivity extends AppCompatActivity {
             }
         });
         title.setText("Transfer To ...");
-//       ActionBar.registerSupportToolbar(this, action_back);
-
-
     }
 }

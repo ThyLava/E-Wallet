@@ -3,6 +3,7 @@ package com.canadia.e_wallet.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 import com.canadia.e_wallet.R;
 import com.canadia.e_wallet.helper.RegisterActionBar;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener{
 //    Toolbar mToolbar;
     ImageView action_info,action_back;
     TextView title;
@@ -33,25 +34,20 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_forgot_password);
 
-//        call back function get toolbar
+//        call back function
         getToolbar();
-
-        //find id
-        id_number = findViewById(R.id.id_number);
-        your_email = findViewById(R.id.email);
-        btn_sent = findViewById(R.id.btn_sent);
+        bindViewID();
 
 //        textWatcher function call back
         id_number.addTextChangedListener(InputTextWatcher);
         your_email.addTextChangedListener(InputTextWatcher);
 
-        btn_sent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Already Sent ",Toast.LENGTH_SHORT).show();
-            }
-        });
+        action_info.setOnClickListener(this);
+        btn_sent.setOnClickListener(this);
+        action_back.setOnClickListener(this);
+
     }
+    // text watcher
     private final TextWatcher InputTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -73,25 +69,34 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     // action bar
     private void getToolbar() {
+        bindViewID();
+        title.setText("Forgot Password");
+        RegisterActionBar.registerSupportToolbar(this, action_back);
+    }
+    // bind view by id
+    public void bindViewID(){
+        id_number = findViewById(R.id.id_number);
+        your_email = findViewById(R.id.email);
+        btn_sent = findViewById(R.id.btn_sent);
         title = findViewById(R.id.appBarTitle);
         action_info = findViewById(R.id.action_info);
         action_back = findViewById(R.id.action_back);
-        action_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
+    // click action
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.action_info:
+                startActivity(new Intent(getApplicationContext(),InstructionActivity.class));
+                break;
+            case  R.id.btn_sent:
+                Toast.makeText(getApplicationContext(),"Already Sent ",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_back:
                 onBackPressed();
-            }
-        });
-        action_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next_intent = new Intent(getBaseContext(), InstructionActivity.class);
-                startActivity(next_intent);
-            }
-        });
-        title.setText("Forgot Password");
-        RegisterActionBar.registerSupportToolbar(this, action_back);
-
+                break;
+        }
 
     }
 }

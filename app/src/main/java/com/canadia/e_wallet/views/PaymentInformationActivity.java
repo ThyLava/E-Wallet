@@ -29,6 +29,7 @@ public class PaymentInformationActivity extends AppCompatActivity  implements Ad
     TextView title, bank_name,bank_desc,total;
     EditText amount;
     String total_amount;
+    Button confirm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +38,7 @@ public class PaymentInformationActivity extends AppCompatActivity  implements Ad
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_payment_information);
         getToolbar();
-//        get id
-        logo = findViewById(R.id.logo);
-        bank_name = findViewById(R.id.title_bank);
-        bank_desc = findViewById(R.id.sub_bank);
-        amount = findViewById(R.id.amount);
-        total = findViewById(R.id.total);
-        amount.addTextChangedListener(totalPayment);
-        receive_bank = findViewById(R.id.receive_bank);
-        receive_bank = findViewById(R.id.receive_bank);
-
-        Button confirm = (Button) findViewById(R.id.confirm);
+        bindViewByID();
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +70,18 @@ public class PaymentInformationActivity extends AppCompatActivity  implements Ad
 
     }
 
+    // bind view by id
+    private void bindViewByID(){
+        logo = findViewById(R.id.logo);
+        bank_name = findViewById(R.id.title_bank);
+        bank_desc = findViewById(R.id.sub_bank);
+        amount = findViewById(R.id.amount);
+        total = findViewById(R.id.total);
+        amount.addTextChangedListener(totalPayment);
+        receive_bank = findViewById(R.id.receive_bank);
+        receive_bank = findViewById(R.id.receive_bank);
+        confirm = findViewById(R.id.confirm);
+    }
     // action bar
     private void getToolbar() {
         title = findViewById(R.id.app_title_bar);

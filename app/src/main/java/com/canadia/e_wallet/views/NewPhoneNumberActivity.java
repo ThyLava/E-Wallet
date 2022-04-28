@@ -41,8 +41,7 @@ public class NewPhoneNumberActivity extends AppCompatActivity {
         btn_new_number.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Tool.confirmNexPhoneDialog(
+                        Tool.confirmNexPhoneDialog(
                         NewPhoneNumberActivity.this,
                         "Login with phone number :", new_number.getText().toString(),
                         "We will send a verification code to the "+"\n"+

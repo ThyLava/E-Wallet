@@ -3,6 +3,7 @@ package com.canadia.e_wallet.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
     GridView pay_view;
     BottomNavigationView nav;
     ImageView sign_out,notification,show_balance;
@@ -42,57 +43,32 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_home);
 
+        bindViewByID();
+        payData();
+        slideData();
+
+        notification.setOnClickListener(this);
+        show_balance.setOnClickListener(this);
+        sign_out.setOnClickListener(this);
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.shop, R.id.home,R.id.favorite)
+                .build();
+    }
+    // bind view by id
+    public void bindViewByID(){
         pay_view = findViewById(R.id.grid_pay);
         sign_out = findViewById(R.id.btn_close_app);
         notification = findViewById(R.id.notification);
         show_balance = findViewById(R.id.show);
         balance = findViewById(R.id.balance);
-
-        ImageSlider imageSlider = findViewById(R.id.slider);
-        List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/623d4461d6af6a2a19561b9d_VISA-EDUCATION.jpg"));
-        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/61fddef80f8059746744f21e_CNB_FIX_DEPOSIT_PROMO_Web.jpg"));
-        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/5f8d17f846544fa02a1b7e4d_resize%20for%20website-04.png"));
-        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/6244018829da6bcdb0cc7d85_e-Voucher-%242-from-Legend-Web.jpg"));
-        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/5f8e4d12f19506366a5c86cf_Promotion%20thumnail%201200px%20X%20650px-03.jpg"));
-        imageSlider.setImageList(slideModels,true);
-
-        show_balance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isShow = !isShow;
-                show_balance.setSelected(isShow);
-                balance.setText(isShow?balanceHandle:"*****");
-                show_balance.setImageResource(isShow?R.drawable.ic_baseline_visibility_24 : R.drawable.visibility_off);
-            }
-        });
-
-
         nav = findViewById(R.id.bottom_navigation);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.shop, R.id.home,R.id.favorite)
-                .build();
-        notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent next_intent = new Intent(getBaseContext(), NotificationActivity.class);
-                startActivity(next_intent);
-            }
-        });
-        sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tool.comfirmSignout(HomeActivity.this, "Are you sure you want to sign out ?", new OnButtonClick() {
-                    @Override
-                    public void buttonClick() {
-                        Intent next_intent = new Intent(getBaseContext(), MainActivity.class);
-                        startActivity(next_intent);
-                    }
-                });
-            }
-        });
 
+    }
+
+    private void payData(){
         ArrayList<PayModel> payModelArrayList = new ArrayList<PayModel>();
+
         payModelArrayList.add(new PayModel("Transfer", R.drawable.transfer));
         payModelArrayList.add(new PayModel("Food Delivery ", R.drawable.food));
         payModelArrayList.add(new PayModel("Friends", R.drawable.group));
@@ -101,8 +77,6 @@ public class HomeActivity extends AppCompatActivity {
         payModelArrayList.add(new PayModel("Movie Tickets", R.drawable.movie));
         payModelArrayList.add(new PayModel("Order Coffee", R.drawable.ic_baseline_coffee_24));
         payModelArrayList.add(new PayModel("Pay Bills", R.drawable.bill));
-
-
         PayGridViewAdapter adapter = new PayGridViewAdapter(this, payModelArrayList);
         pay_view.setAdapter(adapter);
         pay_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -129,7 +103,40 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    private void slideData(){
+        ImageSlider imageSlider = findViewById(R.id.slider);
+        List<SlideModel> slideModels = new ArrayList<>();
+        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/623d4461d6af6a2a19561b9d_VISA-EDUCATION.jpg"));
+        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/61fddef80f8059746744f21e_CNB_FIX_DEPOSIT_PROMO_Web.jpg"));
+        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/5f8d17f846544fa02a1b7e4d_resize%20for%20website-04.png"));
+        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/6244018829da6bcdb0cc7d85_e-Voucher-%242-from-Legend-Web.jpg"));
+        slideModels.add(new SlideModel("https://global-uploads.webflow.com/5ee6fcad61bab357cf10c8fa/5f8e4d12f19506366a5c86cf_Promotion%20thumnail%201200px%20X%20650px-03.jpg"));
+        imageSlider.setImageList(slideModels,true);
+    }
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.show:
+                isShow = !isShow;
+                show_balance.setSelected(isShow);
+                balance.setText(isShow?balanceHandle:"*****");
+                show_balance.setImageResource(isShow?R.drawable.ic_baseline_visibility_24 : R.drawable.visibility_off);
+                break;
+            case R.id.notification:
+                startActivity(new Intent(getApplicationContext(),NotificationActivity.class));
+                break;
+            case R.id.btn_close_app:
+                Tool.threeParameterDialog(HomeActivity.this, "Are you sure you want to sign out ?", new OnButtonClick() {
+                    @Override
+                    public void buttonClick() {
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    }
+                });
+                break;
 
+        }
     }
 }

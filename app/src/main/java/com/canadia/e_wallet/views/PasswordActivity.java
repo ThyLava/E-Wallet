@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.canadia.e_wallet.MainActivity;
 import com.canadia.e_wallet.R;
 
-public class PasswordActivity extends AppCompatActivity {
+public class PasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText enter_password,re_enter_password;
     Button btn_enter_password;
@@ -31,31 +31,17 @@ public class PasswordActivity extends AppCompatActivity {
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_password);
 
-        //find id
+        bindViewID();
+
+        btn_enter_password.setOnClickListener(this);
+        enter_password.addTextChangedListener(passwordTextWatcher);
+        re_enter_password.addTextChangedListener(passwordTextWatcher);
+    }
+    private void bindViewID(){
         enter_password = findViewById(R.id.enter_password);
         re_enter_password = findViewById(R.id.re_enter_password);
         btn_enter_password = findViewById(R.id.btn_enter_password);
         show_incorrect_password = findViewById(R.id.tv_incorrect_password);
-
-        enter_password.addTextChangedListener(passwordTextWatcher);
-        re_enter_password.addTextChangedListener(passwordTextWatcher);
-        btn_enter_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String m_password = enter_password.getText().toString();
-                String m_re_password = re_enter_password.getText().toString();
-                if(m_password.length()==6 && m_re_password.length()==6){
-                    if(m_password.equals(m_re_password)){
-                        Intent next_intent = new Intent(getBaseContext(), PersonalInfoActivity.class);
-                        startActivity(next_intent);
-                        show_incorrect_password.setVisibility(View.INVISIBLE);
-                    }else {
-                        show_incorrect_password.setVisibility(View.VISIBLE);
-                    }
-                }
-            }
-        });
     }
     private final TextWatcher passwordTextWatcher = new TextWatcher() {
         @Override
@@ -74,4 +60,23 @@ public class PasswordActivity extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_enter_password:
+                String m_password = enter_password.getText().toString();
+                String m_re_password = re_enter_password.getText().toString();
+                if(m_password.length()==6 && m_re_password.length()==6){
+                    if(m_password.equals(m_re_password)){
+                        Intent next_intent = new Intent(getBaseContext(), PersonalInfoActivity.class);
+                        startActivity(next_intent);
+                        show_incorrect_password.setVisibility(View.INVISIBLE);
+                    }else {
+                        show_incorrect_password.setVisibility(View.VISIBLE);
+                    }
+                }
+                break;
+        }
+    }
 }
