@@ -5,17 +5,19 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/purple_200"
+        android:layout_marginTop="10dp"
         android:elevation="5dp"
         android:layout_gravity="center"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         app:cardCornerRadius="20dp"
-        android:padding="20dp"
+        android:padding="15dp"
         android:background="@drawable/edit_text_border"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:cardElevation="1dp">
+        app:cardElevation="2dp">
         <ImageView
             android:id="@+id/pay_img"
             android:layout_gravity="center"
@@ -29,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:text="Bank G"
         android:textColor="@color/blue_sky"/>
 </LinearLayout>

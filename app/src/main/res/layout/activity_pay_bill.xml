@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="@color/white"
     tools:context=".views.PayBillActivity">
     <include layout="@layout/navigation_bar" />
     <TextView
@@ -22,7 +22,7 @@
         android:scrollbarSize="0dp"
         android:id="@+id/grid_bill"
         android:layout_width="fill_parent"
-        android:layout_height="350dp"
+        android:layout_height="330dp"
         android:layout_margin="6dp"
         android:columnWidth="200dp"
         android:gravity="center"

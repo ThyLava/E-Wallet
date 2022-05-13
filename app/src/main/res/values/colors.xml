@@ -9,9 +9,9 @@
   <color name="dot_enable">#1B5C7D </color>
   <color name="dot_disable">#087E73</color>
   <color name="black_overlay">#66000000</color>
-  <color name="purple_500">#0CE9E9</color>
-  <color name="purple_700">#0CE9E9</color>
-  <color name="purple_200">#0CE9E9</color>
+  <color name="purple_500">#D81028</color>
+  <color name="purple_700">#D81028</color>
+  <color name="purple_200">#D81028</color>
   <color name="white">#ffffff</color>
   <color name="teal_200">#008080</color>
   <color name="teal_700">#008080</color>

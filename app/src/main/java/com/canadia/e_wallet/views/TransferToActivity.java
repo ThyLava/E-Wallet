@@ -80,9 +80,6 @@ public class TransferToActivity extends AppCompatActivity implements View.OnClic
             }
         });
         title.setText("Transfer To ...");
-//       ActionBar.registerSupportToolbar(this, action_back);
-
-
     }
     @SuppressLint("NonConstantResourceId")
     @Override

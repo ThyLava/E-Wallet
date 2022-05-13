@@ -1,7 +1,6 @@
 package com.canadia.e_wallet.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.canadia.e_wallet.R;
-import com.canadia.e_wallet.adapter.BillGridViewAdapter;
-import com.canadia.e_wallet.models.BillModel;
+import com.canadia.e_wallet.adapter.BankGridViewAdapter;
+import com.canadia.e_wallet.adapter.PayGridViewAdapter;
+import com.canadia.e_wallet.models.BankModel;
+import com.canadia.e_wallet.models.PayModel;
 
 import java.util.ArrayList;
 
@@ -58,18 +59,18 @@ public class PayBillActivity extends AppCompatActivity {
         title.setText("Pay Bills");
     }
     private void billData(){
-        ArrayList<BillModel> billModelArrayList = new ArrayList<BillModel>();
+        ArrayList<BankModel> bankModelArrayList = new ArrayList<BankModel>();
 
-        billModelArrayList.add(new BillModel("Payment", R.drawable.payment));
-        billModelArrayList.add(new BillModel("Internet", R.drawable.wifi));
-        billModelArrayList.add(new BillModel("All Services", R.drawable.dot));
-        billModelArrayList.add(new BillModel("Airport", R.drawable.ic_baseline_connecting_airports_24));
-        billModelArrayList.add(new BillModel("Phone", R.drawable.ic_baseline_phone_iphone_24));
-        billModelArrayList.add(new BillModel("Electricity", R.drawable.eletric));
-        billModelArrayList.add(new BillModel("Watch", R.drawable.watch));
-        billModelArrayList.add(new BillModel("Food & Drink", R.drawable.food));
+        bankModelArrayList.add(new BankModel("Payment", R.drawable.payment));
+        bankModelArrayList.add(new BankModel("Internet", R.drawable.wifi));
+        bankModelArrayList.add(new BankModel("All Services", R.drawable.dot));
+        bankModelArrayList.add(new BankModel("Airport", R.drawable.ic_baseline_connecting_airports_24));
+        bankModelArrayList.add(new BankModel("Phone", R.drawable.ic_baseline_phone_iphone_24));
+        bankModelArrayList.add(new BankModel("Electricity", R.drawable.eletric));
+        bankModelArrayList.add(new BankModel("Watch", R.drawable.watch));
+        bankModelArrayList.add(new BankModel("Food & Drink", R.drawable.food));
 
-        BillGridViewAdapter adapter = new BillGridViewAdapter(this, billModelArrayList);
+        BankGridViewAdapter adapter = new BankGridViewAdapter(this, bankModelArrayList);
         bills.setAdapter(adapter);
     }
 }
