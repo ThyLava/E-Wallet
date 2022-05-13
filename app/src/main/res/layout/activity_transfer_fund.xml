@@ -9,6 +9,7 @@
     tools:context=".views.TransferFundActivity">
     <include layout="@layout/navigation_bar" />
     <EditText
+        android:textColorHint="@color/white"
         android:gravity="left|center_vertical"
         android:paddingStart="15dp"
         android:paddingEnd="10dp"
@@ -24,10 +25,9 @@
         android:layout_height="wrap_content"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="#474647"
         android:text="Select bank"
         android:layout_marginBottom="30dp"/>
-
 
         <GridView
 

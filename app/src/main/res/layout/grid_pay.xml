@@ -33,6 +33,6 @@
         android:fontFamily="sans-serif"
         android:textSize="12sp"
         android:text="Bank G"
-        android:textColor="@color/blue_sky"/>
+        android:textColor="#474647"/>
 </LinearLayout>
 

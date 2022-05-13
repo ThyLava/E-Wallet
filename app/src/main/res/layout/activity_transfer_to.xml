@@ -112,7 +112,7 @@
             android:drawableStart="@drawable/msg"
             android:id="@+id/msg"
             android:inputType="text"
-            android:hint="Massage (optional) "
+            android:hint="Message (optional) "
             android:paddingStart="20dp"
             android:layout_marginBottom="5dp"
             android:elevation="10dp"

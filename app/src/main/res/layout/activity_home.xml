@@ -30,6 +30,7 @@
                 android:background="@color/purple_200"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
+                android:textColorHint="@color/white"
                 android:hint="Search"/>
             <ImageView
                 android:id="@+id/notification"
@@ -125,7 +126,7 @@
                                 android:layout_weight="2"
                                 android:text="@string/wallet"
                                 android:textAlignment="center"
-                                android:textColor="@color/blue_sky"
+                                android:textColor="#474647"
                                 android:textSize="13sp" />
 
                             <TextView
@@ -134,7 +135,7 @@
                                 android:layout_weight="2"
                                 android:text="Exchange"
                                 android:textAlignment="center"
-                                android:textColor="@color/blue_sky"
+                                android:textColor="#474647"
                                 android:textSize="13sp" />
 
                             <TextView
@@ -143,7 +144,7 @@
                                 android:layout_weight="2"
                                 android:text="QR Scan"
                                 android:textAlignment="center"
-                                android:textColor="@color/blue_sky"
+                                android:textColor="#474647"
                                 android:textSize="13sp" />
 
                             <TextView
@@ -152,7 +153,7 @@
                                 android:layout_weight="2"
                                 android:text="Shop"
                                 android:textAlignment="center"
-                                android:textColor="@color/blue_sky"
+                                android:textColor="#474647"
                                 android:textSize="13sp" />
                         </LinearLayout>
 
