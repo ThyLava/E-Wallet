@@ -27,19 +27,18 @@
         android:textStyle="bold"
         android:textColor="#474647"
         android:text="Select bank"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="5dp"/>
 
         <GridView
-
             android:scrollbarSize="0dp"
             android:id="@+id/grid_bank"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="20dp"
             android:columnWidth="200dp"
             android:gravity="center"
             android:numColumns="3"
-            android:verticalSpacing="28dp"
+            android:verticalSpacing="8dp"
             android:stretchMode="columnWidth"  />
 
 

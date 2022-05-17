@@ -27,7 +27,7 @@
         android:columnWidth="200dp"
         android:gravity="center"
         android:numColumns="3"
-        android:verticalSpacing="33dp"
+        android:verticalSpacing="10dp"
         android:stretchMode="columnWidth"  />
 
     <TextView

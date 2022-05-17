@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.canadia.e_wallet.R;
+import com.canadia.e_wallet.helper.ShareInstance;
 
 public class PaymentInformationActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
     Spinner receive_bank;
@@ -30,6 +31,7 @@ public class PaymentInformationActivity extends AppCompatActivity  implements Ad
     EditText amount;
     String total_amount;
     Button confirm;
+    Double balance_after_pay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,8 @@ public class PaymentInformationActivity extends AppCompatActivity  implements Ad
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                balance_after_pay = ShareInstance.TotalBalance - Double.parseDouble(total_amount);
+                ShareInstance.TotalBalance = balance_after_pay;
                 Intent next_intent = new Intent(getBaseContext(),WithdrawalActivity.class);
                 next_intent.putExtra("total",total_amount);
                 startActivity(next_intent);

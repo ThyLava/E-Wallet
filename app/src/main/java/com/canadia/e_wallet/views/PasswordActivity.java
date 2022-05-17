@@ -37,7 +37,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         enter_password.addTextChangedListener(passwordTextWatcher);
         re_enter_password.addTextChangedListener(passwordTextWatcher);
     }
-    private void bindViewID(){
+    private void bindViewID() {
         enter_password = findViewById(R.id.enter_password);
         re_enter_password = findViewById(R.id.re_enter_password);
         btn_enter_password = findViewById(R.id.btn_enter_password);

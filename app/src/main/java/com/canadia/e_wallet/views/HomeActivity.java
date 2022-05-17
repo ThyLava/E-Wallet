@@ -18,6 +18,7 @@ import com.canadia.e_wallet.MainActivity;
 import com.canadia.e_wallet.R;
 import com.canadia.e_wallet.helper.OnButtonClick;
 import com.canadia.e_wallet.adapter.PayGridViewAdapter;
+import com.canadia.e_wallet.helper.ShareInstance;
 import com.canadia.e_wallet.models.PayModel;
 import com.canadia.e_wallet.helper.Tool;
 import com.denzcoskun.imageslider.ImageSlider;
@@ -28,12 +29,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
+
+//    Double default_balance = 100.95;
     GridView pay_view;
     BottomNavigationView nav;
     ImageView sign_out,notification,show_balance;
     TextView balance;
     boolean isShow = true;
-    String balanceHandle = "$ 80.00";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();//use to hides the action bar
         setContentView(R.layout.activity_home);
+
+//        ShareInstance.TotalBalance =  default_balance;
+
 
         bindViewByID();
         payData();
@@ -65,6 +72,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         nav = findViewById(R.id.bottom_navigation);
 
     }
+
+
 
     private void payData(){
         ArrayList<PayModel> payModelArrayList = new ArrayList<PayModel>();
@@ -97,7 +106,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     }
                     default:
-
                         break;
                 }
 
@@ -122,7 +130,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.show:
                 isShow = !isShow;
                 show_balance.setSelected(isShow);
-                balance.setText(isShow?balanceHandle:"*****");
+                balance.setText(isShow?"$ "+ ShareInstance.TotalBalance.toString():"*****");
                 show_balance.setImageResource(isShow?R.drawable.ic_baseline_visibility_24 : R.drawable.visibility_off);
                 break;
             case R.id.notification:
@@ -138,5 +146,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+
     }
+
+    @Override
+    public void  onResume() {
+        super.onResume();
+
+//        isShow = !isShow;
+//        show_balance.setSelected(isShow);
+//        balance.setText(isShow?"$ "+ ShareInstance.TotalBalance.toString():"*****");
+//        show_balance.setImageResource(isShow?R.drawable.ic_baseline_visibility_24: R.drawable.visibility_off);
+//
+    }
+
 }

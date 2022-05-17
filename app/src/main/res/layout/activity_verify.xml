@@ -32,15 +32,16 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         >
-
         <com.chaos.view.PinView
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center"
+
             android:id="@+id/firstPinView"
             style="@style/PinWidget.PinView"
             android:layout_width="match_parent"
@@ -53,10 +54,10 @@
             app:cursorWidth="2dp"
             app:hideLineWhenFilled="true"
             app:itemCount="6"
-            app:itemHeight="50dp"
+            app:itemHeight="48dp"
             app:itemRadius="4dp"
             app:itemSpacing="10dp"
-            app:itemWidth="50dp"
+            app:itemWidth="48dp"
             app:lineColor="@color/black_overlay"
             app:lineWidth="1dp"
             app:viewType="rectangle" />
@@ -73,7 +74,6 @@
         android:background="@drawable/button_style"
         android:text="@string/next" />
     <TextView
-
         android:id="@+id/time_limit"
         android:textColor="@color/blue_sky"
         android:text="@string/limit_time_text"

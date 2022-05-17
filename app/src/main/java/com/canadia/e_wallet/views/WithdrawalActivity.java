@@ -13,11 +13,13 @@ import android.widget.TextView;
 
 import com.canadia.e_wallet.MainActivity;
 import com.canadia.e_wallet.R;
+import com.canadia.e_wallet.helper.ShareInstance;
 
 public class WithdrawalActivity extends AppCompatActivity {
-    TextView total_payment;
+    TextView total_payment,total_wallet;
     Button btn_main_screen;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class WithdrawalActivity extends AppCompatActivity {
         //find id
         total_payment = findViewById(R.id.total);
         btn_main_screen = findViewById(R.id.btn_main_screen);
+        total_wallet = findViewById(R.id.total_wallet);
+        total_wallet.setText("$ "+ShareInstance.TotalBalance.toString());
 
         Intent intent = getIntent();
         String total = intent.getStringExtra("total");
@@ -37,7 +41,9 @@ public class WithdrawalActivity extends AppCompatActivity {
         btn_main_screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent next_intent = new Intent(getBaseContext(), HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(next_intent);
             }
         });

@@ -16,13 +16,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.canadia.e_wallet.R;
+import com.canadia.e_wallet.helper.ShareInstance;
 
 public class TransferToActivity extends AppCompatActivity implements View.OnClickListener{
     EditText card_number,amount,msg;
     de.hdodenhof.circleimageview.CircleImageView logo;
     Button btn_transfer_next;
     ImageView action_back;
-    TextView title,bank_name;
+    TextView title,bank_name,error_text;
+    Double balance_after_transfer;
+    String total_amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +38,14 @@ public class TransferToActivity extends AppCompatActivity implements View.OnClic
         bindViewID();
 
         card_number.addTextChangedListener(transferToTextWatcher);
-        amount.addTextChangedListener(transferToTextWatcher);
+        amount.addTextChangedListener(balanceCheck);
         msg.addTextChangedListener(transferToTextWatcher);
         Intent i = getIntent();
         logo.setImageResource(i.getIntExtra("img",0));
         bank_name.setText(i.getStringExtra("name"));
         btn_transfer_next.setOnClickListener(this);
+        error_text.setVisibility(View.VISIBLE);
+        error_text.setText("");
     }
     // set enable button
     private final TextWatcher transferToTextWatcher = new TextWatcher() {
@@ -50,18 +55,44 @@ public class TransferToActivity extends AppCompatActivity implements View.OnClic
         }
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String card = card_number.getText().toString().trim();
-            String total_amount = amount.getText().toString().trim();
-            String message = msg.getText().toString().trim();
-            if(!card.isEmpty() && !total_amount.isEmpty() && !message.isEmpty()){
-                btn_transfer_next.setEnabled(true);
-            }
+
         }
         @Override
         public void afterTextChanged(Editable editable) {
-
+            btn_transfer_next.setEnabled(isEnableNext());
         }
     };
+    private final TextWatcher balanceCheck = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+            btn_transfer_next.setEnabled(isEnableNext());
+            if(total_amount.isEmpty()){
+                error_text.setText("Required");
+            }else if(ShareInstance.TotalBalance<Double.parseDouble(total_amount)){
+                error_text.setText("Not enough");
+            }else{
+                error_text.setText("");
+            }
+        }
+    };
+
+    private Boolean isEnableNext(){
+        total_amount = amount.getText().toString().trim();
+        String card = card_number.getText().toString().trim();
+        return !(card.isEmpty() || total_amount.isEmpty() || ShareInstance.TotalBalance<Double.parseDouble(total_amount));
+    };
+
     private void bindViewID(){
         card_number = findViewById(R.id.card_number);
         amount = findViewById(R.id.amount);
@@ -69,7 +100,9 @@ public class TransferToActivity extends AppCompatActivity implements View.OnClic
         logo = findViewById(R.id.logo_bank);
         bank_name = findViewById(R.id.name_bank);
         btn_transfer_next = findViewById(R.id.btn_transfer_next);
+        error_text = findViewById(R.id.error_text);
     }
+    @SuppressLint("SetTextI18n")
     private void getToolbar() {
         title = findViewById(R.id.app_title_bar);
         action_back = findViewById(R.id.back);
@@ -86,7 +119,11 @@ public class TransferToActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_transfer_next:
-                startActivity(new Intent(getBaseContext(),WithdrawalActivity.class));
+                    balance_after_transfer = ShareInstance.TotalBalance - Double.parseDouble(total_amount);
+                    ShareInstance.TotalBalance = balance_after_transfer;
+                Intent next_intent = new Intent(getBaseContext(),WithdrawalActivity.class);
+                next_intent.putExtra("total",total_amount);
+                startActivity(next_intent);
                 break;
         }
     }

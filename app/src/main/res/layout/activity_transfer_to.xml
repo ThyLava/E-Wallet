@@ -70,21 +70,23 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <EditText
+            android:id="@+id/card_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:elevation="10dp"
             android:background="@drawable/edit_text_border"
-            android:drawablePadding="12sp"
-            android:gravity="left|center_vertical"
             android:drawableStart="@drawable/payment"
-            android:maxLength="4"
-            android:id="@+id/card_number"
-            android:inputType="number"
-            android:paddingStart="20dp"
+            android:drawablePadding="12sp"
+            android:elevation="10dp"
+            android:gravity="left|center_vertical"
             android:hint="Enter card number"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:inputType="number"
+            android:maxLength="4"
+            android:paddingStart="20dp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="25dp"/>
@@ -103,9 +105,17 @@
             android:hint="$  Enter the Amount"
             android:layout_width="match_parent"
             android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/error_text"
+            android:visibility="invisible"
+            android:text="You haven't enough money to transfer"
+            android:textColor="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="25dp"/>
+            android:layout_height="5dp"/>
         <EditText
             android:drawablePadding="12sp"
             android:gravity="left|center_vertical"

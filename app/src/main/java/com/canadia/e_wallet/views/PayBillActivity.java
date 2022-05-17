@@ -63,12 +63,12 @@ public class PayBillActivity extends AppCompatActivity {
 
         bankModelArrayList.add(new BankModel("Payment", R.drawable.payment));
         bankModelArrayList.add(new BankModel("Internet", R.drawable.wifi));
-        bankModelArrayList.add(new BankModel("All Services", R.drawable.dot));
+        bankModelArrayList.add(new BankModel("All Services", R.drawable.dot_pay));
         bankModelArrayList.add(new BankModel("Airport", R.drawable.ic_baseline_connecting_airports_24));
         bankModelArrayList.add(new BankModel("Phone", R.drawable.ic_baseline_phone_iphone_24));
         bankModelArrayList.add(new BankModel("Electricity", R.drawable.eletric));
         bankModelArrayList.add(new BankModel("Watch", R.drawable.watch));
-        bankModelArrayList.add(new BankModel("Food & Drink", R.drawable.food));
+        bankModelArrayList.add(new BankModel("Food & Drink", R.drawable.food_drink));
 
         BankGridViewAdapter adapter = new BankGridViewAdapter(this, bankModelArrayList);
         bills.setAdapter(adapter);

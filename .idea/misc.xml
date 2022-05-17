@@ -17,6 +17,7 @@
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/exchange.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/flat.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/food.xml" value="0.2703125" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/food_drink.xml" value="0.214" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/gift.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/group.xml" value="0.141" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.2325" />
@@ -31,8 +32,10 @@
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/ic_fingerprint.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/ic_input_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/info.xml" value="0.214" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/money.xml" value="0.141" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/movie.xml" value="0.1775" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/msg.xml" value="0.1695" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/notification.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/otp_style.xml" value="0.2703125" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/payment.xml" value="0.13333333333333333" />
@@ -50,7 +53,7 @@
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_billing_information.xml" value="0.152" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_food.xml" value="0.264" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_forgot_password.xml" value="0.2" />
-        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_home.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_instruction.xml" value="0.264" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_list_bank.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -64,8 +67,8 @@
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_transaction_detail.xml" value="0.176" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_transfer_fund.xml" value="0.264" />
-        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_transfer_to.xml" value="0.176" />
-        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_verify.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_transfer_to.xml" value="0.2" />
+        <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_verify.xml" value="0.4" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/activity_withdrawal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/layout/app_bar.xml" value="0.20380434782608695" />
