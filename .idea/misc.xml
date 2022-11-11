@@ -3,6 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/drawable/button_style.xml" value="0.204" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/drawable/edit_text_border.xml" value="0.204" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/action_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_billing_information.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_food.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_home.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_list_bank.xml" value="0.1331521739130435" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_new_phone_number.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_notification.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_password.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/activity_pay_bill.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/card_item_bank.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/change_phone_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/confirm_new_phone_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/dealine_otp_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/foods.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/grid_pay.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/list_bank_payment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kunthy.Sen/Documents/GitHub/E-Wallet/app/src/main/res/layout/slide_item_container.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/action.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/bank.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/kunthy.sen/AndroidStudioProjects/EWallet/app/src/main/res/drawable/bill.xml" value="0.2595" />

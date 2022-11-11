@@ -42,7 +42,6 @@
             android:layout_marginTop="90dp"
             android:text="We will send a verification code to the phone number you entered"
             android:textAlignment="center" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

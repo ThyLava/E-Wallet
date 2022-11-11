@@ -69,7 +69,5 @@ public class ListBankActivity extends AppCompatActivity {
             }
         });
         title.setText("Electricity Payment ");
-
-
     }
 }

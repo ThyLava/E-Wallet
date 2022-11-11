@@ -122,10 +122,13 @@ public class Tool {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.login_dialog);
+
         ImageView logo_choose = (ImageView) dialog.findViewById(R.id.your_choice);
         logo_choose.setImageResource(logo);
+
         TextView main_title = (TextView) dialog.findViewById(R.id.title);
         main_title.setText(title);
+
         TextView description = (TextView) dialog.findViewById(R.id.description);
         description.setText(desc);
 

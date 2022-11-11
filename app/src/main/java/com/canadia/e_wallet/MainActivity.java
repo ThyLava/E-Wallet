@@ -18,7 +18,7 @@ import com.canadia.e_wallet.views.SignUpActivity;
 import com.canadia.e_wallet.views.TransactionDetailActivity;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<ViewPager> extends AppCompatActivity {
 
   private ViewPager viewPager;
   private Button button, btn_register;
